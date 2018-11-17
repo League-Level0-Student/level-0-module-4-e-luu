@@ -1,7 +1,7 @@
 package extra;
 //    Copyright (c) The League of Amazing Programmers 2013-2017
-//    Level 0
 
+//    Level 0
 
 import java.applet.AudioClip;
 
@@ -10,7 +10,8 @@ import javax.swing.JOptionPane;
 
 public class DontForgetTheLyrics {
 	/*
-	 * For this game, we'll play the start of a song, and the player has to guess the rest of the lyrics.
+	 * For this game, we'll play the start of a song, and the player has to guess
+	 * the rest of the lyrics.
 	 * 
 	 * 1. To record a sound clip, open Audacity and record your song.
 	 * 
@@ -18,16 +19,22 @@ public class DontForgetTheLyrics {
 	 * 
 	 * 3. Drag your file from the Desktop into the "default package" under "src".
 	 */
-	
+
 	public static void main(String[] args) {
 		// 4. Make a pop-up to explain the game.
-
+		JOptionPane.showMessageDialog(null,
+				"In this game you are going to try to guess the lyrics to 'Play that Song' by Train");
 		// 5. Use the playSound method to play your song.
-
+		playSound("song");
 		// 6. Make a pop-up for the player to type their answer.
-
+		String words = JOptionPane.showInputDialog("type your message here");
 		// 7. If they answered correctly, tell them that they were right.
-
+String lyrics = "play that song the one that makes you go on and on";
+		if (words==lyrics) {
+	JOptionPane.showMessageDialog(null, "good job! you won");
+}else {
+ JOptionPane.showMessageDialog(null, "sorry try again!");
+}
 		// 8. Otherwise, tell them they are wrong, and give them the answer.
 
 		// 9. Record another sound and repeat steps 5-8.
@@ -35,10 +42,8 @@ public class DontForgetTheLyrics {
 		// 10. [optional] Add a points variable that will calculate their final score.
 	}
 
-	public static void playSound(String fileName) {
+	public static void playSound(String song) {
 		AudioClip audioClip = JApplet.newAudioClip(new DontForgetTheLyrics().getClass().getResource(fileName));
 		audioClip.play();
 	}
 }
-
-
